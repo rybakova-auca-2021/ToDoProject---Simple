@@ -12,3 +12,8 @@ def addToDoView(request):
     new_item = ToDoItem(content = x)
     new_item.save()
     return HttpResponseRedirect('/list/') 
+
+def deleteItemView(request, i):
+    deleted_item = ToDoItem.objects.get(id = i)
+    deleted_item.delete()
+    return HttpResponseRedirect('/list/') 
