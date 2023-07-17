@@ -8,7 +8,18 @@
 </head>
 
 <body>
-    <h1>My ToDo List</h1>         
+    <h1>My ToDo List</h1>
+
+    <form action="/addItem/" method="post">{% csrf_token %}
+        <input type="text" name="content">
+        <input type="submit" value="Add">
+    </form>
+
+    <ul>
+        {% for i in all_items %}
+        <li>{{i.content}}</li>
+        {% endfor %}
+    </ul>         
 </body>
 
 </html>
